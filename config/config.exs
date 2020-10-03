@@ -8,7 +8,11 @@
 use Mix.Config
 
 config :twofa,
-  ecto_repos: [Twofa.Repo]
+  ecto_repos: [Twofa.Repo],
+  generators: [binary_id: true]
+
+  config :twofa, Twofa.Repo,
+  migration_primary_key: [name: :id, type: :binary_id]
 
 # Configures the endpoint
 config :twofa, TwofaWeb.Endpoint,
@@ -25,6 +29,11 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :joken, default_signer: [
+  signer_alg: "HS256",
+  key_octet: "cuastv23dsqwdffnhjhdbkcbakjasqkfwir123o8r83bufbfbf1b"
+]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

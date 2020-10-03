@@ -44,7 +44,13 @@ defmodule Twofa.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:ecto_enum, "~> 1.4"},
+      {:bcrypt_elixir, "~> 2.0"},
+      {:joken, "~> 2.0"},
+      {:faker, "~> 0.12"},
     ]
   end
 
